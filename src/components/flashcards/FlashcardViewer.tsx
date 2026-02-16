@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, RotateCcw, Check, X, Brain } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, Check, X, Zap, Sparkles } from 'lucide-react';
 import type { Flashcard } from '../../types';
 import { useFlashcardStore } from '../../store/flashcardStore';
 
@@ -10,10 +10,10 @@ interface FlashcardViewerProps {
 }
 
 const difficultyButtons = [
-  { quality: 0, label: 'Again', color: 'bg-red-600', icon: X },
-  { quality: 3, label: 'Hard', color: 'bg-orange-500', icon: Brain },
-  { quality: 4, label: 'Good', color: 'bg-blue-500', icon: Check },
-  { quality: 5, label: 'Easy', color: 'bg-green-600', icon: Check },
+  { quality: 0, label: 'Again', color: 'bg-accent-red hover:bg-accent-red-dark', textColor: 'text-white', icon: X },
+  { quality: 3, label: 'Hard', color: 'bg-accent-yellow hover:bg-accent-yellow/80', textColor: 'text-bg-primary', icon: Zap },
+  { quality: 4, label: 'Good', color: 'bg-accent-blue hover:bg-accent-blue-dark', textColor: 'text-white', icon: Check },
+  { quality: 5, label: 'Easy', color: 'bg-accent-green hover:bg-accent-green-dark', textColor: 'text-white', icon: Sparkles },
 ] as const;
 
 export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps) {
@@ -101,12 +101,12 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
+    <div className="max-w-4xl mx-auto p-4 md:p-6 space-y-6">
       {/* Header with Progress */}
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <h2 className="text-2xl font-bold text-gray-900">Flashcard Review</h2>
-          <p className="text-sm text-gray-600">
+          <h2 className="text-heading-3 text-text-primary">Flashcard Review</h2>
+          <p className="text-sm text-text-tertiary">
             Card {currentIndex + 1} of {flashcards.length}
           </p>
         </div>
@@ -114,16 +114,16 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
         <div className="flex items-center gap-4">
           {progress && (
             <div className="text-right">
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                progress.masteryLevel === 'new' ? 'bg-gray-200 text-gray-800' :
-                progress.masteryLevel === 'learning' ? 'bg-yellow-200 text-yellow-800' :
-                progress.masteryLevel === 'review' ? 'bg-blue-200 text-blue-800' :
-                'bg-green-200 text-green-800'
+              <span className={`badge ${
+                progress.masteryLevel === 'new' ? 'badge-blue' :
+                progress.masteryLevel === 'learning' ? 'badge-yellow' :
+                progress.masteryLevel === 'review' ? 'badge-purple' :
+                'badge-green'
               }`}>
                 {masteryLabels[progress.masteryLevel]}
               </span>
-              <p className="text-xs text-gray-500 mt-1">
-                Streak: {progress.correctStreak} | Accuracy: {
+              <p className="text-xs text-text-muted mt-1">
+                🔥 {progress.correctStreak} | {
                   progress.totalReviews > 0
                     ? Math.round((progress.correctReviews / progress.totalReviews) * 100)
                     : 0
@@ -134,19 +134,21 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
 
           <button
             onClick={handleReset}
-            className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="p-2.5 rounded-lg bg-bg-tertiary hover:bg-bg-tertiary/80 transition-all hover:scale-105"
             title="Reset to first card"
           >
-            <RotateCcw className="w-5 h-5 text-gray-700" />
+            <RotateCcw className="w-5 h-5 text-text-secondary" />
           </button>
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-gray-200 rounded-full h-2">
-        <div
-          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-          style={{ width: `${((currentIndex + 1) / flashcards.length) * 100}%` }}
+      <div className="w-full bg-bg-tertiary rounded-full h-2.5 overflow-hidden">
+        <motion.div
+          className="bg-accent-blue h-full rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${((currentIndex + 1) / flashcards.length) * 100}%` }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         />
       </div>
 
