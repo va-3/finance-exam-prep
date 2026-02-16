@@ -170,6 +170,12 @@
       "type": "file"
     },
     {
+      "path": "src/components/flashcards/FlashcardDashboard.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1771225299189,
+      "type": "file"
+    },
+    {
       "path": "src/index.css",
       "accessCount": 5,
       "lastAccessed": 1771224883053,
@@ -203,6 +209,12 @@
       "path": "src/components/ui/ProgressRing.tsx",
       "accessCount": 3,
       "lastAccessed": 1771224891593,
+      "type": "file"
+    },
+    {
+      "path": "src/theme.css",
+      "accessCount": 3,
+      "lastAccessed": 1771225313192,
       "type": "file"
     },
     {
@@ -248,12 +260,6 @@
       "type": "file"
     },
     {
-      "path": "src/theme.css",
-      "accessCount": 1,
-      "lastAccessed": 1771224883372,
-      "type": "file"
-    },
-    {
       "path": "src/App.tsx",
       "accessCount": 1,
       "lastAccessed": 1771224890603,
@@ -269,12 +275,6 @@
       "path": "package.json",
       "accessCount": 1,
       "lastAccessed": 1771224892463,
-      "type": "file"
-    },
-    {
-      "path": "src/components/flashcards/FlashcardDashboard.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771224900451,
       "type": "file"
     }
   ],
