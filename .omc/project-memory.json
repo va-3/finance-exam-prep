@@ -1,0 +1,222 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1771222927223,
+  "projectRoot": "/Users/vishnuanapalli/Desktop/finance-exam-prep",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.0",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "7.3.1",
+        "category": "build"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc -b && vite build",
+      "lint": "eslint .",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 2,
+      "lastAccessed": 1771222927206,
+      "keyFiles": [
+        "index.html",
+        "vite.svg"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 1,
+      "lastAccessed": 1771222927209,
+      "keyFiles": [
+        "vite.svg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 5,
+      "lastAccessed": 1771222927209,
+      "keyFiles": [
+        "App.css",
+        "App.tsx",
+        "index.css",
+        "main.tsx",
+        "theme.css"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1771222927210,
+      "keyFiles": [
+        "index-BT3tcGQ_.js",
+        "index-J88G_bE4.css"
+      ]
+    },
+    "src/assets": {
+      "path": "src/assets",
+      "purpose": "Static assets",
+      "fileCount": 1,
+      "lastAccessed": 1771222927210,
+      "keyFiles": [
+        "react.svg"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1771222927210,
+      "keyFiles": []
+    },
+    "src/data": {
+      "path": "src/data",
+      "purpose": "Data files",
+      "fileCount": 7,
+      "lastAccessed": 1771222927210,
+      "keyFiles": [
+        "calculator-sequences.ts",
+        "flashcards.ts",
+        "formulas.ts"
+      ]
+    },
+    "src/pages": {
+      "path": "src/pages",
+      "purpose": "Page components",
+      "fileCount": 2,
+      "lastAccessed": 1771222927211,
+      "keyFiles": [
+        "CalculatorPage.tsx",
+        "DashboardPage.tsx"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/utils/metricsCalculator.ts",
+      "accessCount": 7,
+      "lastAccessed": 1771224165295,
+      "type": "file"
+    },
+    {
+      "path": "src/components/layout/Dashboard.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1771224471229,
+      "type": "file"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 4,
+      "lastAccessed": 1771224545591,
+      "type": "file"
+    },
+    {
+      "path": "src/pages/DashboardPage.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771224027254,
+      "type": "file"
+    },
+    {
+      "path": "tailwind.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1771224237205,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/ProgressRing.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771224326163,
+      "type": "file"
+    },
+    {
+      "path": "src/store/progressStore.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771223905631,
+      "type": "file"
+    },
+    {
+      "path": "src/data/topics.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771223906833,
+      "type": "file"
+    },
+    {
+      "path": "src/types/progress.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771223915560,
+      "type": "file"
+    },
+    {
+      "path": "src/store/examStore.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771223995340,
+      "type": "file"
+    },
+    {
+      "path": "src/store/flashcardStore.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771223995606,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

@@ -122,7 +122,9 @@
       "agent_type": "features-agent",
       "started_at": "2026-02-16T06:18:59.362Z",
       "parent_mode": "none",
-      "status": "running"
+      "status": "completed",
+      "completed_at": "2026-02-16T06:20:09.575Z",
+      "duration_ms": 70213
     },
     {
       "agent_id": "abe981d",
@@ -196,10 +198,17 @@
       "started_at": "2026-02-16T06:19:38.476Z",
       "parent_mode": "none",
       "status": "running"
+    },
+    {
+      "agent_id": "a5ff3ee",
+      "agent_type": "features-agent",
+      "started_at": "2026-02-16T06:20:09.717Z",
+      "parent_mode": "none",
+      "status": "running"
     }
   ],
-  "total_spawned": 23,
-  "total_completed": 18,
+  "total_spawned": 24,
+  "total_completed": 19,
   "total_failed": 0,
-  "last_updated": "2026-02-16T06:19:38.578Z"
+  "last_updated": "2026-02-16T06:23:18.262Z"
 }
