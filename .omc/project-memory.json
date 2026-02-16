@@ -159,8 +159,8 @@
     },
     {
       "path": "src/utils/metricsCalculator.ts",
-      "accessCount": 12,
-      "lastAccessed": 1771226358593,
+      "accessCount": 14,
+      "lastAccessed": 1771226565065,
       "type": "file"
     },
     {
@@ -189,8 +189,8 @@
     },
     {
       "path": "src/components/layout/Layout.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1771225639650,
+      "accessCount": 8,
+      "lastAccessed": 1771226475026,
       "type": "file"
     },
     {
@@ -224,15 +224,15 @@
       "type": "file"
     },
     {
-      "path": "tailwind.config.js",
-      "accessCount": 3,
-      "lastAccessed": 1771224890904,
+      "path": "src/store/progressStore.ts",
+      "accessCount": 4,
+      "lastAccessed": 1771226512412,
       "type": "file"
     },
     {
-      "path": "src/store/progressStore.ts",
+      "path": "tailwind.config.js",
       "accessCount": 3,
-      "lastAccessed": 1771225412537,
+      "lastAccessed": 1771224890904,
       "type": "file"
     },
     {

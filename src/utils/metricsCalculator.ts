@@ -105,10 +105,12 @@ function generateStudyPlan(
 
   // Prioritize: weak areas first, then incomplete topics
   const prioritizedTopics = [
-    ...weakAreas.map(wa => ({
-      topic: topics.find(t => t.id === wa.topicId)!,
-      priority: 'high',
-    })),
+    ...weakAreas
+      .map(wa => {
+        const topic = topics.find(t => t.id === wa.topicId);
+        return topic ? { topic, priority: 'high' } : null;
+      })
+      .filter((item): item is { topic: any; priority: string } => item !== null),
     ...incompleteTopics
       .filter(t => !weakAreas.some(wa => wa.topicId === t.id))
       .slice(0, 6)
