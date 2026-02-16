@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useProgressStore } from '../../store/progressStore';
-import { Topic } from '../../types/content';
+import type { Topic } from '../../types/content';
 import TopicCard from './TopicCard';
 
 interface LearningDashboardProps {

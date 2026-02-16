@@ -1,0 +1,205 @@
+{
+  "agents": [
+    {
+      "agent_id": "a3d1e4c",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:10:16.464Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:11:55.030Z",
+      "duration_ms": 98566
+    },
+    {
+      "agent_id": "a2c330f",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:11:55.173Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:12:22.958Z",
+      "duration_ms": 27785
+    },
+    {
+      "agent_id": "a39a377",
+      "agent_type": "ux-agent",
+      "started_at": "2026-02-16T06:13:40.634Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:15:53.213Z",
+      "duration_ms": 132579
+    },
+    {
+      "agent_id": "a2b6da2",
+      "agent_type": "features-agent",
+      "started_at": "2026-02-16T06:15:20.149Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:18:59.222Z",
+      "duration_ms": 219073
+    },
+    {
+      "agent_id": "a931167",
+      "agent_type": "ux-agent",
+      "started_at": "2026-02-16T06:15:53.359Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:16:31.480Z",
+      "duration_ms": 38121
+    },
+    {
+      "agent_id": "af26016",
+      "agent_type": "ux-agent",
+      "started_at": "2026-02-16T06:16:31.624Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:35.477Z",
+      "duration_ms": 183853
+    },
+    {
+      "agent_id": "a0f54bc",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:16:35.263Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:16:47.804Z",
+      "duration_ms": 12541
+    },
+    {
+      "agent_id": "a14ca0c",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:17:44.066Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:17:59.594Z",
+      "duration_ms": 15528
+    },
+    {
+      "agent_id": "a9b17ff",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:17:59.860Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:18:26.143Z",
+      "duration_ms": 26283
+    },
+    {
+      "agent_id": "aeedeba",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:18:01.663Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:18:29.514Z",
+      "duration_ms": 27851
+    },
+    {
+      "agent_id": "aac87de",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:18:26.293Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:07.585Z",
+      "duration_ms": 41292
+    },
+    {
+      "agent_id": "af40451",
+      "agent_type": "learning-agent",
+      "started_at": "2026-02-16T06:18:41.815Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:18:54.243Z",
+      "duration_ms": 12428
+    },
+    {
+      "agent_id": "a0a89b5",
+      "agent_type": "learning-agent",
+      "started_at": "2026-02-16T06:18:54.392Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:06.987Z",
+      "duration_ms": 12595
+    },
+    {
+      "agent_id": "a285b57",
+      "agent_type": "features-agent",
+      "started_at": "2026-02-16T06:18:59.362Z",
+      "parent_mode": "none",
+      "status": "running"
+    },
+    {
+      "agent_id": "abe981d",
+      "agent_type": "learning-agent",
+      "started_at": "2026-02-16T06:19:07.142Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:17.844Z",
+      "duration_ms": 10702
+    },
+    {
+      "agent_id": "a7b6510",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:19:07.728Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:20.922Z",
+      "duration_ms": 13194
+    },
+    {
+      "agent_id": "aa988ed",
+      "agent_type": "learning-agent",
+      "started_at": "2026-02-16T06:19:17.984Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:29.194Z",
+      "duration_ms": 11210
+    },
+    {
+      "agent_id": "a567d36",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:19:20.776Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:30.182Z",
+      "duration_ms": 9406
+    },
+    {
+      "agent_id": "a48418d",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:19:21.219Z",
+      "parent_mode": "none",
+      "status": "completed",
+      "completed_at": "2026-02-16T06:19:38.332Z",
+      "duration_ms": 17113
+    },
+    {
+      "agent_id": "a7d7375",
+      "agent_type": "learning-agent",
+      "started_at": "2026-02-16T06:19:29.393Z",
+      "parent_mode": "none",
+      "status": "running"
+    },
+    {
+      "agent_id": "a75da1e",
+      "agent_type": "infrastructure-agent",
+      "started_at": "2026-02-16T06:19:30.322Z",
+      "parent_mode": "none",
+      "status": "running"
+    },
+    {
+      "agent_id": "a7506f0",
+      "agent_type": "ux-agent",
+      "started_at": "2026-02-16T06:19:35.786Z",
+      "parent_mode": "none",
+      "status": "running"
+    },
+    {
+      "agent_id": "a542c7d",
+      "agent_type": "content-agent",
+      "started_at": "2026-02-16T06:19:38.476Z",
+      "parent_mode": "none",
+      "status": "running"
+    }
+  ],
+  "total_spawned": 23,
+  "total_completed": 18,
+  "total_failed": 0,
+  "last_updated": "2026-02-16T06:19:38.578Z"
+}

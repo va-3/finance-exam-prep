@@ -25,17 +25,14 @@ export default {
         'accent-green-light': '#34d399',
         'accent-red': '#ef4444',
       },
-      fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      borderRadius: {
+        'card': '0.75rem',
       },
       fontSize: {
         'heading-1': '2.5rem',
         'heading-2': '2rem',
         'heading-3': '1.5rem',
         'body': '1.125rem',
-      },
-      borderRadius: {
-        'card': '0.75rem',
       },
       scale: {
         '98': '0.98',

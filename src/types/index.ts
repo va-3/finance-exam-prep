@@ -62,7 +62,7 @@ export interface Topic {
 export interface PracticeQuestion {
   id: string;
   topicId: string;
-  formulaIds: string[];
+  formulaIds?: string[];
   question: string;
   options: {
     id: string;

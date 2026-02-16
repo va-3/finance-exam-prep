@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle, Lightbulb } from 'lucide-react';
-import { Topic } from '../../types/content';
+import type { Topic } from '../../types/content';
 import { useProgressStore } from '../../store/progressStore';
 
 interface LearnModeProps {
@@ -56,7 +56,7 @@ export default function LearnMode({ topic, onComplete }: LearnModeProps) {
           {sections.map((section) => (
             <button
               key={section.id}
-              onClick={() => setCurrentSection(section.id)}
+              onClick={() => setCurrentSection(section.id as 'explanation' | 'formula' | 'analogy' | 'example')}
               className={`px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                 currentSection === section.id
                   ? 'bg-blue-600 text-white'

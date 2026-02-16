@@ -1,5 +1,5 @@
 import { Lock, CheckCircle, Play, Trophy } from 'lucide-react';
-import { Topic, TopicProgress } from '../../types/content';
+import type { Topic, TopicProgress } from '../../types/content';
 import { useProgressStore } from '../../store/progressStore';
 import { useState } from 'react';
 
@@ -20,8 +20,8 @@ export default function TopicCard({ topic, progress, isUnlocked }: TopicCardProp
 
   const getStatusColor = () => {
     if (!isUnlocked) return 'border-slate-700 bg-slate-800/30';
-    if (progress?.masterScore >= 70) return 'border-green-500/50 bg-green-900/20';
-    if (progress?.practiceScore >= 70) return 'border-blue-500/50 bg-blue-900/20';
+    if (progress?.masterScore && progress.masterScore >= 70) return 'border-green-500/50 bg-green-900/20';
+    if (progress?.practiceScore && progress.practiceScore >= 70) return 'border-blue-500/50 bg-blue-900/20';
     if (progress?.learnCompleted) return 'border-yellow-500/50 bg-yellow-900/20';
     return 'border-slate-600 bg-slate-800/50';
   };

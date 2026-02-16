@@ -1,25 +1,104 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Home, BookOpen, Target, Zap, Calculator, FileText, Trophy, Menu, X } from 'lucide-react';
+import Sidebar from './Sidebar';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
-  return (
-    <div className="min-h-screen bg-background">
-      <div className="flex">
-        {/* Sidebar will be implemented by ux-agent */}
-        <aside className="w-64 border-r border-border bg-card">
-          <div className="p-4">
-            <h1 className="text-xl font-bold text-foreground">Finance Exam Prep</h1>
-          </div>
-        </aside>
+const navigation = [
+  { name: 'Dashboard', path: '/dashboard', icon: Home },
+  { name: 'Learn', path: '/learn', icon: BookOpen },
+  { name: 'Practice', path: '/practice', icon: Target },
+  { name: 'Master', path: '/master', icon: Zap },
+  { name: 'Flashcards', path: '/flashcards', icon: FileText },
+  { name: 'Calculator', path: '/calculator', icon: Calculator },
+  { name: 'Practice Exam', path: '/exam', icon: Trophy },
+];
 
-        {/* Main content area */}
-        <main className="flex-1 p-6">
-          {children}
-        </main>
-      </div>
+// Mock exam date (3 days from now for demo)
+const examDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
+
+// Mock metrics for sidebar
+const mockMetrics = {
+  overallScore: 78,
+  practiceAverage: 75,
+  masterAverage: 80,
+  flashcardMastery: 82,
+  weakAreas: [
+    { topicId: 'npv', topicName: 'Net Present Value', score: 65 },
+    { topicId: 'bonds', topicName: 'Bond Pricing', score: 68 },
+  ],
+  studyPlan: [
+    {
+      day: 1,
+      date: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      topics: [
+        { topicId: 'npv', topicName: 'Net Present Value', timeAllocation: 60, priority: 'high' as const },
+        { topicId: 'bonds', topicName: 'Bond Pricing', timeAllocation: 60, priority: 'high' as const },
+      ],
+      totalMinutes: 240,
+    },
+  ],
+};
+
+export function Layout({ children }: LayoutProps) {
+  const location = useLocation();
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-bg-primary flex">
+      {/* Navigation Sidebar */}
+      <aside className="w-64 bg-bg-secondary border-r border-bg-tertiary flex flex-col">
+        <div className="p-6 border-b border-bg-tertiary">
+          <h1 className="text-2xl font-bold text-accent-blue">Finance Exam Prep</h1>
+          <p className="text-sm text-text-tertiary mt-1">Master your finance exam</p>
+        </div>
+
+        <nav className="flex-1 p-4 space-y-2">
+          {navigation.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  isActive
+                    ? 'bg-accent-blue text-white shadow-lg'
+                    : 'text-text-secondary hover:bg-bg-tertiary hover:text-text-primary'
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="font-medium">{item.name}</span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="p-4 border-t border-bg-tertiary">
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary hover:bg-accent-blue/20 transition-all"
+          >
+            {sidebarCollapsed ? <Menu className="w-4 h-4" /> : <X className="w-4 h-4" />}
+            <span className="text-sm">Toggle Progress</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Main content area */}
+      <main className="flex-1 overflow-y-auto">
+        {children}
+      </main>
+
+      {/* Progress Sidebar */}
+      {!sidebarCollapsed && (
+        <Sidebar metrics={mockMetrics} examDate={examDate} isCollapsed={false} />
+      )}
     </div>
   );
 }
