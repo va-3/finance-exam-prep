@@ -1,12 +1,15 @@
+import { useMemo } from 'react';
 import Dashboard from '../components/layout/Dashboard';
 import { calculateReadinessMetrics } from '../utils/metricsCalculator';
 import { useExamStore } from '../store/examStore';
 
 export default function DashboardPage() {
-  // Calculate real metrics from actual user progress
-  const metrics = calculateReadinessMetrics();
-  const examHistory = useExamStore((state) =>
-    state.attempts
+  // Calculate real metrics from actual user progress (memoized to prevent infinite loops)
+  const metrics = useMemo(() => calculateReadinessMetrics(), []);
+
+  const examHistory = useMemo(() => {
+    const attempts = useExamStore.getState().attempts;
+    return attempts
       .filter(a => a.status === 'completed')
       .map(a => ({
         id: a.id,
@@ -15,9 +18,9 @@ export default function DashboardPage() {
         timeSpent: a.duration,
         questionsCorrect: a.score || 0,
         questionsTotal: a.questions.length,
-        weakAreas: [] as string[], // Can be enhanced later
-      }))
-  );
+        weakAreas: [] as string[],
+      }));
+  }, []);
 
   return <Dashboard metrics={metrics} examHistory={examHistory} />;
 }

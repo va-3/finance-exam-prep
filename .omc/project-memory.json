@@ -176,6 +176,12 @@
       "type": "directory"
     },
     {
+      "path": "src/components/layout/Layout.tsx",
+      "accessCount": 9,
+      "lastAccessed": 1771227220040,
+      "type": "file"
+    },
+    {
       "path": "src",
       "accessCount": 8,
       "lastAccessed": 1771225632311,
@@ -185,12 +191,6 @@
       "path": "src/components/flashcards/FlashcardDashboard.tsx",
       "accessCount": 8,
       "lastAccessed": 1771225641084,
-      "type": "file"
-    },
-    {
-      "path": "src/components/layout/Layout.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1771226475026,
       "type": "file"
     },
     {
@@ -207,8 +207,8 @@
     },
     {
       "path": "src/pages/DashboardPage.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1771226342372,
+      "accessCount": 7,
+      "lastAccessed": 1771227204011,
       "type": "file"
     },
     {

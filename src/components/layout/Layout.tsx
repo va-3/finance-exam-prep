@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BookOpen, Target, Zap, Calculator, FileText, Trophy, Menu, X } from 'lucide-react';
 import Sidebar from './Sidebar';
@@ -26,8 +26,8 @@ export function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  // Calculate real metrics from actual user progress
-  const metrics = calculateReadinessMetrics();
+  // Calculate real metrics from actual user progress (memoized to prevent infinite loops)
+  const metrics = useMemo(() => calculateReadinessMetrics(), []);
 
   return (
     <div className="min-h-screen bg-bg-primary flex">
