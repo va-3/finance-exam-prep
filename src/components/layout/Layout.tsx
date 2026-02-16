@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BookOpen, Target, Zap, Calculator, FileText, Trophy, Menu, X } from 'lucide-react';
 import Sidebar from './Sidebar';
+import { calculateReadinessMetrics } from '../../utils/metricsCalculator';
 
 interface LayoutProps {
   children: ReactNode;
@@ -21,32 +22,12 @@ const navigation = [
 // Mock exam date (3 days from now for demo)
 const examDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
 
-// Mock metrics for sidebar
-const mockMetrics = {
-  overallScore: 78,
-  practiceAverage: 75,
-  masterAverage: 80,
-  flashcardMastery: 82,
-  weakAreas: [
-    { topicId: 'npv', topicName: 'Net Present Value', score: 65 },
-    { topicId: 'bonds', topicName: 'Bond Pricing', score: 68 },
-  ],
-  studyPlan: [
-    {
-      day: 1,
-      date: new Date(Date.now() + 24 * 60 * 60 * 1000),
-      topics: [
-        { topicId: 'npv', topicName: 'Net Present Value', timeAllocation: 60, priority: 'high' as const },
-        { topicId: 'bonds', topicName: 'Bond Pricing', timeAllocation: 60, priority: 'high' as const },
-      ],
-      totalMinutes: 240,
-    },
-  ],
-};
-
 export function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Calculate real metrics from actual user progress
+  const metrics = calculateReadinessMetrics();
 
   return (
     <div className="min-h-screen bg-bg-primary flex">
@@ -97,7 +78,7 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Progress Sidebar */}
       {!sidebarCollapsed && (
-        <Sidebar metrics={mockMetrics} examDate={examDate} isCollapsed={false} />
+        <Sidebar metrics={metrics} examDate={examDate} isCollapsed={false} />
       )}
     </div>
   );
