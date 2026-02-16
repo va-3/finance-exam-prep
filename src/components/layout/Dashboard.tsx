@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
 import { Calendar, Trophy, BookOpen, CheckCircle, TrendingUp, Target, Zap } from 'lucide-react';
@@ -11,16 +12,18 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ metrics, examHistory }: DashboardProps) {
-  // Prepare chart data
-  const examScoreData = examHistory.slice(-5).map((attempt, idx) => ({
-    attempt: `Attempt ${idx + 1}`,
-    score: attempt.score,
-  }));
+  // Prepare chart data (memoized to prevent infinite Recharts re-renders)
+  const examScoreData = useMemo(() =>
+    examHistory.slice(-5).map((attempt, idx) => ({
+      attempt: `Attempt ${idx + 1}`,
+      score: attempt.score,
+    })), [examHistory]);
 
-  const studyPlanData = metrics.studyPlan.map(day => ({
-    day: `Day ${day.day}`,
-    hours: day.totalMinutes / 60,
-  }));
+  const studyPlanData = useMemo(() =>
+    metrics.studyPlan.map(day => ({
+      day: `Day ${day.day}`,
+      hours: day.totalMinutes / 60,
+    })), [metrics.studyPlan]);
 
   const readinessStatus = getReadinessStatus(metrics.overallScore);
 
