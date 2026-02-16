@@ -63,3 +63,5 @@
 {"t":0,"agent":"ac3f09d","agent_type":"architect","event":"agent_start","parent_mode":"none"}
 {"t":0,"agent":"ac3f09d","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":108436}
 {"t":0,"agent":"aa3ad0a","agent_type":"unknown","event":"agent_stop","success":true}
+{"t":0,"agent":"ae0788e","agent_type":"architect","event":"agent_start","parent_mode":"none"}
+{"t":0,"agent":"ae0788e","agent_type":"architect","event":"agent_stop","success":true,"duration_ms":125726}

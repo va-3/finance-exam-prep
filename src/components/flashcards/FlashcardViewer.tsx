@@ -80,17 +80,17 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
 
   if (!currentCard) {
     return (
-      <div className="flex items-center justify-center h-96 bg-gray-50 rounded-lg">
-        <p className="text-gray-500">No flashcards available</p>
+      <div className="flex items-center justify-center h-96 bg-bg-tertiary rounded-lg">
+        <p className="text-text-muted">No flashcards available</p>
       </div>
     );
   }
 
   const masteryColors = {
-    new: 'border-gray-300 bg-gray-50',
-    learning: 'border-yellow-300 bg-yellow-50',
-    review: 'border-blue-300 bg-blue-50',
-    mastered: 'border-green-300 bg-green-50',
+    new: 'border-border-subtle bg-bg-tertiary',
+    learning: 'border-accent-yellow/30 bg-accent-yellow/5',
+    review: 'border-accent-blue/30 bg-accent-blue/5',
+    mastered: 'border-accent-green/30 bg-accent-green/5',
   };
 
   const masteryLabels = {
@@ -156,14 +156,14 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
       {sessionStats.total > 0 && (
         <div className="flex items-center justify-center gap-6 text-sm">
           <div className="text-center">
-            <p className="text-gray-600">Session Progress</p>
-            <p className="text-2xl font-bold text-gray-900">
+            <p className="text-text-secondary">Session Progress</p>
+            <p className="text-2xl font-bold text-text-primary">
               {sessionStats.correct}/{sessionStats.total}
             </p>
           </div>
           <div className="text-center">
-            <p className="text-gray-600">Accuracy</p>
-            <p className="text-2xl font-bold text-blue-600">
+            <p className="text-text-secondary">Accuracy</p>
+            <p className="text-2xl font-bold text-accent-blue">
               {Math.round((sessionStats.correct / sessionStats.total) * 100)}%
             </p>
           </div>
@@ -208,16 +208,16 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
 
               {!isFlipped ? (
                 <div className="space-y-4">
-                  <h3 className="text-3xl font-bold text-gray-900">{currentCard.front}</h3>
-                  <p className="text-sm text-gray-500">Click to reveal answer</p>
+                  <h3 className="text-3xl font-bold text-text-primary">{currentCard.front}</h3>
+                  <p className="text-sm text-text-muted">Click to reveal answer</p>
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="text-xl text-gray-800 whitespace-pre-wrap">
+                  <div className="text-xl text-text-primary whitespace-pre-wrap">
                     {currentCard.back}
                   </div>
                   {currentCard.formulaId && (
-                    <p className="text-xs text-gray-500">Formula ID: {currentCard.formulaId}</p>
+                    <p className="text-xs text-text-muted">Formula ID: {currentCard.formulaId}</p>
                   )}
                 </div>
               )}
@@ -231,7 +231,7 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
         <button
           onClick={handlePrevious}
           disabled={currentIndex === 0}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary hover:bg-bg-tertiary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-text-primary"
         >
           <ChevronLeft className="w-5 h-5" />
           Previous
@@ -240,7 +240,7 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
         <button
           onClick={handleNext}
           disabled={currentIndex === flashcards.length - 1}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-tertiary hover:bg-bg-tertiary/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-text-primary"
         >
           Next
           <ChevronRight className="w-5 h-5" />
@@ -269,7 +269,7 @@ export function FlashcardViewer({ flashcards, onComplete }: FlashcardViewerProps
 
       {/* Instructions */}
       {!isFlipped && (
-        <div className="text-center text-sm text-gray-500 space-y-2">
+        <div className="text-center text-sm text-text-muted space-y-2">
           <p>Click the card to flip and reveal the answer</p>
           <p className="text-xs">Use keyboard: Space to flip, ← → to navigate</p>
         </div>
