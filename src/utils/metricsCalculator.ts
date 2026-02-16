@@ -42,7 +42,9 @@ export function calculateReadinessMetrics(): ReadinessMetrics {
           'review': 50,
           'mastered': 100
         }[card.masteryLevel];
-        const accuracyScore = (card.correctReviews / card.totalReviews) * 100;
+        const accuracyScore = card.totalReviews > 0
+          ? (card.correctReviews / card.totalReviews) * 100
+          : 0;
         return sum + (levelBonus * 0.6 + accuracyScore * 0.4);
       }, 0) / flashcardProgress.length
     : 0;

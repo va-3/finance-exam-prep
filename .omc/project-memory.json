@@ -153,8 +153,14 @@
   "hotPaths": [
     {
       "path": "src/components/flashcards/FlashcardViewer.tsx",
-      "accessCount": 14,
-      "lastAccessed": 1771225536859,
+      "accessCount": 15,
+      "lastAccessed": 1771225640576,
+      "type": "file"
+    },
+    {
+      "path": "src/utils/metricsCalculator.ts",
+      "accessCount": 12,
+      "lastAccessed": 1771226358593,
       "type": "file"
     },
     {
@@ -164,51 +170,45 @@
       "type": "directory"
     },
     {
-      "path": "src/utils/metricsCalculator.ts",
-      "accessCount": 9,
-      "lastAccessed": 1771225366987,
-      "type": "file"
-    },
-    {
       "path": "src/components/layout/Dashboard.tsx",
-      "accessCount": 8,
-      "lastAccessed": 1771225368189,
-      "type": "file"
-    },
-    {
-      "path": "src/components/flashcards/FlashcardDashboard.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1771225369175,
-      "type": "file"
-    },
-    {
-      "path": "src/components/layout/Layout.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1771225367502,
-      "type": "file"
-    },
-    {
-      "path": "src/index.css",
-      "accessCount": 6,
-      "lastAccessed": 1771225367808,
-      "type": "file"
-    },
-    {
-      "path": "src/components/learning/TopicCard.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1771225368844,
+      "accessCount": 9,
+      "lastAccessed": 1771225640066,
       "type": "file"
     },
     {
       "path": "src",
-      "accessCount": 5,
-      "lastAccessed": 1771225394509,
+      "accessCount": 8,
+      "lastAccessed": 1771225632311,
       "type": "directory"
     },
     {
+      "path": "src/components/flashcards/FlashcardDashboard.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1771225641084,
+      "type": "file"
+    },
+    {
+      "path": "src/components/layout/Layout.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1771225639650,
+      "type": "file"
+    },
+    {
+      "path": "src/components/learning/TopicCard.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1771225648742,
+      "type": "file"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 7,
+      "lastAccessed": 1771225649203,
+      "type": "file"
+    },
+    {
       "path": "src/pages/DashboardPage.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1771225367213,
+      "accessCount": 6,
+      "lastAccessed": 1771226342372,
       "type": "file"
     },
     {
@@ -254,6 +254,12 @@
       "type": "file"
     },
     {
+      "path": "src/App.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771226120598,
+      "type": "file"
+    },
+    {
       "path": "src/data/topics.ts",
       "accessCount": 1,
       "lastAccessed": 1771223906833,
@@ -272,16 +278,28 @@
       "type": "file"
     },
     {
-      "path": "src/App.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771224890603,
-      "type": "file"
-    },
-    {
       "path": "package.json",
       "accessCount": 1,
       "lastAccessed": 1771224892463,
       "type": "file"
+    },
+    {
+      "path": "src/components/flashcards",
+      "accessCount": 1,
+      "lastAccessed": 1771225633125,
+      "type": "directory"
+    },
+    {
+      "path": "src/components",
+      "accessCount": 1,
+      "lastAccessed": 1771225647529,
+      "type": "directory"
+    },
+    {
+      "path": "src/pages",
+      "accessCount": 1,
+      "lastAccessed": 1771225648238,
+      "type": "directory"
     }
   ],
   "userDirectives": []
