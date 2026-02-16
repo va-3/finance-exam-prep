@@ -1,4 +1,5 @@
-import { Lock, CheckCircle, Play, Trophy } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Lock, CheckCircle, Circle, Trophy } from 'lucide-react';
 import type { Topic, TopicProgress } from '../../types/content';
 import { useProgressStore } from '../../store/progressStore';
 import { useState } from 'react';
@@ -18,129 +19,142 @@ export default function TopicCard({ topic, progress, isUnlocked }: TopicCardProp
     setShowUnlockConfirm(false);
   };
 
-  const getStatusColor = () => {
-    if (!isUnlocked) return 'border-slate-700 bg-slate-800/30';
-    if (progress?.masterScore && progress.masterScore >= 70) return 'border-green-500/50 bg-green-900/20';
-    if (progress?.practiceScore && progress.practiceScore >= 70) return 'border-blue-500/50 bg-blue-900/20';
-    if (progress?.learnCompleted) return 'border-yellow-500/50 bg-yellow-900/20';
-    return 'border-slate-600 bg-slate-800/50';
-  };
+  // Determine completion state
+  const isMastered = progress?.masterScore && progress.masterScore >= 70;
+  const isPracticed = progress?.practiceScore && progress.practiceScore >= 70;
+  const isLearned = progress?.learnCompleted;
 
   const getChapterColor = (chapter: number) => {
     const colors = {
-      2: 'bg-blue-500',
-      3: 'bg-green-500',
-      4: 'bg-purple-500',
-      5: 'bg-orange-500',
-      6: 'bg-pink-500',
+      2: 'bg-accent-blue',
+      3: 'bg-accent-green',
+      4: 'bg-accent-purple',
+      5: 'bg-notion-orange',
+      6: 'bg-accent-purple-light',
     };
-    return colors[chapter as keyof typeof colors] || 'bg-slate-500';
+    return colors[chapter as keyof typeof colors] || 'bg-notion-gray';
   };
 
   return (
-    <div
-      className={`relative rounded-xl border-2 p-6 transition-all duration-300 hover:shadow-lg ${getStatusColor()} ${
-        isUnlocked ? 'hover:scale-105 cursor-pointer' : 'opacity-60 cursor-not-allowed'
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className={`relative card transition-all ${
+        isUnlocked
+          ? 'card-hover cursor-pointer'
+          : 'opacity-50 cursor-not-allowed border-border-subtle'
       }`}
     >
-      {/* Lock Overlay */}
+      {/* Lock Overlay - Notion-inspired */}
       {!isUnlocked && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-900/80 rounded-xl backdrop-blur-sm z-10">
-          <div className="text-center">
-            <Lock className="w-12 h-12 text-slate-400 mx-auto mb-2" />
-            <p className="text-slate-300 text-sm mb-3">Complete prerequisites first</p>
+        <div className="absolute inset-0 flex items-center justify-center bg-bg-primary/90 backdrop-blur-sm rounded-card z-10">
+          <div className="text-center p-4">
+            <Lock className="w-8 h-8 text-text-muted mx-auto mb-2" />
+            <p className="text-text-tertiary text-sm mb-3">Complete prerequisites first</p>
             <button
               onClick={() => setShowUnlockConfirm(true)}
-              className="text-xs text-blue-400 hover:text-blue-300 underline"
+              className="text-xs text-accent-blue hover:text-accent-blue-light underline"
             >
-              Skip Ahead
+              Skip ahead anyway
             </button>
           </div>
         </div>
       )}
 
-      {/* Unlock Confirmation */}
+      {/* Unlock Confirmation - Clean modal */}
       {showUnlockConfirm && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-900/95 rounded-xl z-20 p-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-0 flex items-center justify-center bg-bg-primary/95 backdrop-blur-md rounded-card z-20 p-4"
+        >
           <div className="text-center">
-            <p className="text-slate-200 text-sm mb-4">
-              Are you sure? It's better to follow the learning path.
+            <p className="text-text-secondary text-sm mb-4">
+              Skip prerequisites? Following the learning path is recommended.
             </p>
-            <div className="flex gap-2 justify-center">
+            <div className="flex gap-3 justify-center">
               <button
                 onClick={handleUnlock}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm transition-colors"
+                className="btn-secondary text-sm"
               >
-                Unlock Anyway
+                Unlock
               </button>
               <button
                 onClick={() => setShowUnlockConfirm(false)}
-                className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm transition-colors"
+                className="btn-primary text-sm"
               >
-                Cancel
+                Follow Path
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
-      {/* Chapter Badge */}
-      <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold text-white mb-3 ${getChapterColor(topic.chapter)}`}>
+      {/* Chapter Badge - Soft pill */}
+      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium text-white mb-3 ${getChapterColor(topic.chapter)}`}>
+        <span className="w-1.5 h-1.5 bg-white rounded-full opacity-70" />
         Chapter {topic.chapter}
       </div>
 
-      {/* Topic Name */}
-      <h3 className="text-lg font-semibold text-white mb-3 line-clamp-2">
+      {/* Topic Name - Clean typography */}
+      <h3 className="text-heading-4 text-text-primary mb-4 line-clamp-2">
         {topic.name}
       </h3>
 
-      {/* Progress Indicators */}
-      <div className="space-y-2 mb-4">
-        {/* Learn Status */}
-        <div className="flex items-center justify-between text-sm">
-          <div className="flex items-center gap-2">
-            {progress?.learnCompleted ? (
-              <CheckCircle className="w-4 h-4 text-green-400" />
-            ) : (
-              <Play className="w-4 h-4 text-slate-400" />
-            )}
-            <span className="text-slate-300">Learn</span>
-          </div>
-          {progress?.learnCompleted && (
-            <span className="text-green-400 text-xs font-medium">✓ Done</span>
+      {/* Progress Pills - Notion-inspired */}
+      <div className="flex flex-wrap gap-2 mb-4">
+        {/* Learn Pill */}
+        <div
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+            isLearned
+              ? 'bg-accent-green/10 text-accent-green border border-accent-green/20'
+              : 'bg-bg-tertiary text-text-muted border border-border-subtle'
+          }`}
+        >
+          {isLearned ? (
+            <CheckCircle className="w-3.5 h-3.5" />
+          ) : (
+            <Circle className="w-3.5 h-3.5" />
           )}
+          <span>Learn</span>
         </div>
 
-        {/* Practice Score */}
+        {/* Practice Pill */}
         {progress?.practiceScore !== undefined && progress.practiceScore > 0 && (
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-slate-300">Practice</span>
-            <span className={`text-xs font-medium ${progress.practiceScore >= 70 ? 'text-green-400' : 'text-yellow-400'}`}>
-              {progress.practiceScore}%
-            </span>
+          <div
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              isPracticed
+                ? 'bg-accent-blue/10 text-accent-blue border border-accent-blue/20'
+                : 'bg-accent-yellow/10 text-accent-yellow border border-accent-yellow/20'
+            }`}
+          >
+            {isPracticed && <CheckCircle className="w-3.5 h-3.5" />}
+            <span>Practice {progress.practiceScore}%</span>
           </div>
         )}
 
-        {/* Master Score */}
+        {/* Master Pill */}
         {progress?.masterScore !== undefined && progress.masterScore > 0 && (
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-yellow-400" />
-              <span className="text-slate-300">Master</span>
-            </div>
-            <span className={`text-xs font-medium ${progress.masterScore >= 70 ? 'text-green-400' : 'text-yellow-400'}`}>
-              {progress.masterScore}%
-            </span>
+          <div
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+              isMastered
+                ? 'bg-accent-purple/10 text-accent-purple border border-accent-purple/20'
+                : 'bg-notion-gray/10 text-notion-gray border border-notion-gray/20'
+            }`}
+          >
+            {isMastered && <Trophy className="w-3.5 h-3.5" />}
+            <span>Master {progress.masterScore}%</span>
           </div>
         )}
       </div>
 
-      {/* Attempts */}
+      {/* Footer Info - Subtle */}
       {progress?.attempts !== undefined && progress.attempts > 0 && (
-        <div className="text-xs text-slate-500">
+        <div className="text-xs text-text-muted pt-3 border-t border-border-subtle">
           {progress.attempts} attempt{progress.attempts > 1 ? 's' : ''}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

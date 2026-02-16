@@ -170,6 +170,12 @@
       "type": "file"
     },
     {
+      "path": "src/components/learning/TopicCard.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1771224699159,
+      "type": "file"
+    },
+    {
       "path": "src/pages/DashboardPage.tsx",
       "accessCount": 2,
       "lastAccessed": 1771224027254,
@@ -215,6 +221,12 @@
       "path": "src/store/flashcardStore.ts",
       "accessCount": 1,
       "lastAccessed": 1771223995606,
+      "type": "file"
+    },
+    {
+      "path": "src/components/learning/LearningDashboard.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771224616585,
       "type": "file"
     }
   ],
